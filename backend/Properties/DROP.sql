@@ -1,0 +1,4 @@
+USE master
+GO
+DROP DATABASE Backend
+GO

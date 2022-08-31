@@ -1,21 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApi.Authorization;
-using WebApi.Helpers;
-using WebApi.Services;
+using BackendAPI.Authorization;
+using BackendAPI.Helpers;
+using BackendAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// add services to DI container
+// add services
 {
     var services = builder.Services;
     var env = builder.Environment;
- 
-    // use sql server db in production and sqlite db in development
-    if (env.IsProduction())
-        services.AddDbContext<DataContext>();
-    else
-        services.AddDbContext<DataContext, SqliteDataContext>();
- 
+
+    services.AddDbContext<DataContext>();
+
     services.AddCors();
     services.AddControllers();
 
@@ -35,7 +31,7 @@ var app = builder.Build();
 // migrate any database changes on startup (includes initial db creation)
 using (var scope = app.Services.CreateScope())
 {
-    var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();    
+    var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();
     dataContext.Database.Migrate();
 }
 

@@ -1,12 +1,12 @@
-namespace WebApi.Authorization;
+namespace BackendAPI.Authorization;
 
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using WebApi.Entities;
-using WebApi.Helpers;
+using BackendAPI.Entities;
+using BackendAPI.Helpers;
 
 public interface IJwtUtils
 {
@@ -25,7 +25,7 @@ public class JwtUtils : IJwtUtils
 
     public string GenerateToken(User user)
     {
-        // generate token that is valid for 7 days
+        // token validity
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
         var tokenDescriptor = new SecurityTokenDescriptor
@@ -40,7 +40,7 @@ public class JwtUtils : IJwtUtils
 
     public int? ValidateToken(string token)
     {
-        if (token == null) 
+        if (token == null)
             return null;
 
         var tokenHandler = new JwtSecurityTokenHandler();

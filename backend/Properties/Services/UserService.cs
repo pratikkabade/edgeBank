@@ -1,11 +1,11 @@
-namespace WebApi.Services;
+namespace BackendAPI.Services;
 
 using AutoMapper;
 using BCrypt.Net;
-using WebApi.Authorization;
-using WebApi.Entities;
-using WebApi.Helpers;
-using WebApi.Models.Users;
+using BackendAPI.Authorization;
+using BackendAPI.Entities;
+using BackendAPI.Helpers;
+using BackendAPI.Models.Users;
 
 public interface IUserService
 {
@@ -59,7 +59,7 @@ public class UserService : IUserService
 
     public void Register(RegisterRequest model)
     {
-        // validate
+        // validate existence
         if (_context.Users.Any(x => x.Username == model.Username))
             throw new AppException("Username '" + model.Username + "' is already taken");
 
@@ -78,7 +78,7 @@ public class UserService : IUserService
     {
         var user = getUser(id);
 
-        // validate
+        // validate existence
         if (model.Username != user.Username && _context.Users.Any(x => x.Username == model.Username))
             throw new AppException("Username '" + model.Username + "' is already taken");
 

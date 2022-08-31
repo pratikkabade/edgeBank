@@ -1,12 +1,12 @@
-﻿namespace WebApi.Controllers;
+﻿namespace BackendAPI.Controllers;
 
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using WebApi.Authorization;
-using WebApi.Helpers;
-using WebApi.Models.Users;
-using WebApi.Services;
+using BackendAPI.Authorization;
+using BackendAPI.Helpers;
+using BackendAPI.Models.Users;
+using BackendAPI.Services;
 
 [Authorize]
 [ApiController]
@@ -42,6 +42,37 @@ public class UsersController : ControllerBase
         _userService.Register(model);
         return Ok(new { message = "Registration successful" });
     }
+
+    // allow only admins to access this action
+    // [Authorize(Roles = "Admin")]
+    // [HttpGet]
+    // public IActionResult GetAll()
+    // {
+    //     var users = _userService.GetAll();
+    //     return Ok(users);
+    // }
+
+    // [HttpGet]
+    // public IActionResult GetAll()
+    // {
+    //     if (Users.IsAdmin(User))
+    //     {
+    //         var users = _userService.GetAll();
+    //         return Ok(users);
+    //     }
+    //     else
+    //     {
+    //         return Forbid();
+    //     }
+    // }
+
+    // [Authorize(Roles = "Admin")]
+    // [HttpGet]
+    // public IActionResult GetAll()
+    // {
+    //     var users = _userService.GetAll();
+    //     return Ok(users);
+    // }
 
     [HttpGet]
     public IActionResult GetAll()

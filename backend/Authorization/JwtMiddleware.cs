@@ -1,6 +1,6 @@
-namespace WebApi.Authorization;
+namespace BackendAPI.Authorization;
 
-using WebApi.Services;
+using BackendAPI.Services;
 
 public class JwtMiddleware
 {
