@@ -13,4 +13,5 @@ Banking project based on `C-Sharp`, `MVC` for **Frontend** and `WEBAPI`, `JsonWe
     ```
     dotnet new mvc
     ```
-    
+
+2. Removed `wwwroot`, optimised `_Layout.cshtml` & *Pushed* `backend`
