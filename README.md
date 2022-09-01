@@ -23,3 +23,5 @@ Banking project based on `C-Sharp`, `MVC` for **Frontend** and `WEBAPI`, `JsonWe
     - Added required **user registration** fields in *models*
 
     - Added `README`
+
+4. !Shifted to **previously build template** for ease in building
