@@ -3,45 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using frontend.Models;
+using Microsoft.AspNetCore.Authorization;
+
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace frontend.Controllers
 {
-
-    public class ProductsController : Controller
+    public class NewUserController : Controller
     {
-        //INDEX
-        private static HttpClient httpClient = new HttpClient();
-        public ProductsController(IConfiguration configuration)
+
+        private static HttpClient http_Client = new HttpClient();
+
+        public NewUserController(IConfiguration configuration)
         {
             Configuration = configuration;
         }
+        private IConfiguration Configuration { get; }
 
-        public IConfiguration Configuration { get; }
         // GET: /<controller>/
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Users()
         {
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
-            var response = await httpClient.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + "/products");
+            http_Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            http_Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
+            var response = await http_Client.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + "/administration");
             var content = await response.Content.ReadAsStringAsync();
             if (response.IsSuccessStatusCode)
             {
-                var products = new List<Product>();
+                var user = new List<Users>();
                 if (response.Content.Headers.ContentType.MediaType == "application/json")
                 {
-                    products = JsonConvert.DeserializeObject<List<Product>>(content);
+                    user = JsonConvert.DeserializeObject<List<Users>>(content);
                 }
-                return View(products);
+                return View(user);
             }
             else
             {
@@ -59,20 +61,20 @@ namespace frontend.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Product product)
+        public async Task<IActionResult> Create(Users new_user)
         {
             if (ModelState.IsValid)
             {
-                var serializedProductToCreate = JsonConvert.SerializeObject(product);
-                var request = new HttpRequestMessage(HttpMethod.Post, Configuration.GetValue<string>("WebAPIBaseUrl") + "/products");
+                var serializedProductToCreate = JsonConvert.SerializeObject(new_user);
+                var request = new HttpRequestMessage(HttpMethod.Post, Configuration.GetValue<string>("WebAPIBaseUrl") + "/administration");
                 request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 request.Content = new StringContent(serializedProductToCreate);
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                var response = await httpClient.SendAsync(request);
+                var response = await http_Client.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("Index", "Products");
+                    return RedirectToAction("Users", "NewUser");
                 }
                 else
                 {
@@ -85,37 +87,40 @@ namespace frontend.Controllers
         }
 
 
+
+
+
         //EDIT
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            var response = await httpClient.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + $"/products/{id}");
+            var response = await http_Client.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + $"/administration/{id}");
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
-            var product = new Product();
+            var new_user = new Users();
             if (response.Content.Headers.ContentType.MediaType == "application/json")
             {
-                product = JsonConvert.DeserializeObject<Product>(content);
+                new_user = JsonConvert.DeserializeObject<Users>(content);
             }
-            return View(product);
+            return View(new_user);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(Product product)
+        public async Task<IActionResult> Edit(Users new_user)
         {
             if (ModelState.IsValid)
             {
-                //httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
-                var serializedProductToEdit = JsonConvert.SerializeObject(product);
-                var request = new HttpRequestMessage(HttpMethod.Put, Configuration.GetValue<string>("WebAPIBaseUrl") + $"/products/{product.Id}");
+                //http_Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                http_Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
+                var serializedProductToEdit = JsonConvert.SerializeObject(new_user);
+                var request = new HttpRequestMessage(HttpMethod.Put, Configuration.GetValue<string>("WebAPIBaseUrl") + $"/administration/{new_user.Id}");
                 request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 request.Content = new StringContent(serializedProductToEdit);
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                var response = await httpClient.SendAsync(request);
+                var response = await http_Client.SendAsync(request);
                 if (response.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("Index", "Products");
+                    return RedirectToAction("Users", "NewUser");
                 }
                 else
                 {
@@ -133,34 +138,34 @@ namespace frontend.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            var response = await httpClient.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + $"/products/{id}");
+            var response = await http_Client.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + $"/administration/{id}");
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
-            var product = new Product();
+            var new_user = new Users();
             if (response.Content.Headers.ContentType.MediaType == "application/json")
             {
-                product = JsonConvert.DeserializeObject<Product>(content);
+                new_user = JsonConvert.DeserializeObject<Users>(content);
             }
-            return View(product);
+            return View(new_user);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(Product product)
+        public async Task<IActionResult> Delete(Users new_user)
         {
             if (ModelState.IsValid)
             {
-                //httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
-                var serializedProductToDelete = JsonConvert.SerializeObject(product);
-                var request = new HttpRequestMessage(HttpMethod.Delete, Configuration.GetValue<string>("WebAPIBaseUrl") + $"/products/{product.Id}");
+                //http_Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                http_Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
+                var serializedProductToDelete = JsonConvert.SerializeObject(new_user);
+                var request = new HttpRequestMessage(HttpMethod.Delete, Configuration.GetValue<string>("WebAPIBaseUrl") + $"/administration/{new_user.Id}");
                 request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 request.Content = new StringContent(serializedProductToDelete);
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                var response = await httpClient.SendAsync(request);
+                var response = await http_Client.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("Index", "Products");
+                    return RedirectToAction("Users", "NewUser");
                 }
                 else
                 {
@@ -172,5 +177,6 @@ namespace frontend.Controllers
                 ViewBag.Message = "wrong";
             return View("Delete");
         }
+
     }
 }

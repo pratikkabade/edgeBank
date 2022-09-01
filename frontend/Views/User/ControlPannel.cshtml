@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "ControlPannel";
+}
+
+<div class="container">
+    <div asp-action="Login" class="border text-center contactForm barItem">
+        <a asp-controller="NewUser" asp-action="Users">
+            Users
+        </a> <br>
+        <a asp-controller="Products" asp-action="Index" class="pushDown">
+            Products
+        </a>
+    </div>
+</div>

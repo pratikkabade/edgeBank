@@ -10,15 +10,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using frontend.Models;
+using Microsoft.AspNetCore.Authorization;
+
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace frontend.Controllers
 {
-    public class AccountController : Controller
+    public class UserController : Controller
     {
         private readonly static HttpClient httpClient = new();
-        public AccountController(IConfiguration configuration)
+        public UserController(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -29,7 +31,7 @@ namespace frontend.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Login(User user)
+        public async Task<IActionResult> Login(Users user)
         {
             if (user.Email == null || user.Password == null)
             {
@@ -46,10 +48,30 @@ namespace frontend.Controllers
                 HttpContext.Session.SetString("token", jwt.Token);
                 HttpContext.Session.SetString("UserName", user.Email);
 
-                return RedirectToAction("Index", "Products");
+                if (user.Role == "Admin")
+                {
+                    return RedirectToAction("ControlPannel", "User");
+                }
+                else
+                {
+                    return RedirectToAction("MyAccount", "User");
+                }
+
+                // return RedirectToAction("ControlPannel", "User");
             }
             ViewBag.Message = "Invalid Username or Password";
             return View("Login");
         }
+
+        public IActionResult ControlPannel()
+        {
+            return View();
+        }
+
+        public IActionResult MyAccount()
+        {
+            return View();
+        }
+
     }
 }

@@ -1,0 +1,51 @@
+@{
+    ViewBag.Title = "Create";
+}
+@model Users
+
+
+<form asp-action="Create" asp-controller="NewUser" method="post" class="contactForm">
+    <fieldset>
+        <p>
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" />
+        </p>
+        <p>
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" />
+        </p>
+        <p>
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+        </p>
+        <p>
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+        </p>
+        <p>
+            <label asp-for="MobileNumber"></label>
+            <input asp-for="MobileNumber" />
+        </p>
+        <p>
+            <label asp-for="AadharCard"></label>
+            <input asp-for="AadharCard" />
+        </p>
+        <p>
+            <label asp-for="PAN_Card"></label>
+            <input asp-for="PAN_Card" />
+        </p>
+        <p>
+            <label asp-for="Address"></label>
+            <input asp-for="Address" />
+        </p>
+        <p>
+            <label asp-for="Nominee"></label>
+            <input asp-for="Nominee" />
+        </p>
+        <p>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </p>
+    </fieldset>
+    <h6 style="color:red">@Html.Raw(@ViewBag.Message)</h6>
+
+</form>

@@ -1,0 +1,19 @@
+.logoLink {
+  color: black;
+  text-decoration: none;
+  padding: 5px;
+  font-size: 30px;
+}
+
+.logoLink img {
+  width: 50px;
+  border-radius: 50%;
+  filter: brightness(1.2);
+  transition: 0.15s;
+  box-shadow: none;
+  border: 1px solid var(--accent);
+}
+
+.contactForm {
+  box-shadow: var(--shadowsmall) !important;
+}

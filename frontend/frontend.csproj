@@ -8,7 +8,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Home\" />
     <Folder Include="Views\Products\" />
-    <Folder Include="Views\Account\" />
+    <Folder Include="Views\User\" />
+    <Folder Include="Views\NewUser\" />
   </ItemGroup>
 </Project>

@@ -26,4 +26,12 @@ Banking project based on `C-Sharp`, `MVC` for **Frontend** and `WEBAPI`, `JsonWe
 
 4. !Shifted to **previously build template** for ease in building
 
-5. Built backend as per the requirement of *admin* and  *customer* login
+5. Built backend as per the requirement of **admin** and  **customer** login
+
+6. Synchronized frontend to perform following operations from MVC
+    
+    - **login**
+
+    - **create** new user
+
+    - **edit-delete** existing user

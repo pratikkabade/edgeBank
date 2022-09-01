@@ -1,0 +1,20 @@
+@{
+    ViewBag.Title = "ControlPannel";
+}
+@model IEnumerable<frontend.Models.Users>
+
+<div class="mainSection">
+    <div class="subSection">
+        <h1>My Account</h1>
+        <a asp-controller="Products" asp-action="Index" class="pushDown">
+            Products
+        </a>
+    </div>
+</div>
+
+@* @if (Users.Role == "Admin")
+    {
+    <a asp-controller="Users" asp-action="Index" class="pushDown">
+    Users
+    </a>
+    } *@

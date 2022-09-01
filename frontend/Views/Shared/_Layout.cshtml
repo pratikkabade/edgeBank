@@ -4,14 +4,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - JWT</title>
-    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
-    <link rel="stylesheet" href="~/css/site.css" />
+    <title>EdgeBank - @ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
     <!-- Online Content -->
-    <link rel="icon" href="https://avatars.githubusercontent.com/u/108847584?s=200&v=4">
+    <link rel="icon" href="https://github.com/pratikkabade/edgeBank/raw/%234-!Shift/frontend/Assets/logo.png">
     <link rel="stylesheet" href="https://cdn.statically.io/gh/dependabot-pr/Static-Files/main/style.css">
     <link rel="stylesheet" href="https://cdn.statically.io/gh/dependabot-pr/Static-Files/main/animation.css">
 </head>
@@ -22,16 +24,18 @@
             <div class='container-fluid'>
                 <ul class='navbar-nav justify-content-start'>
                     <li>
-                        @* <a asp-controller="Home" asp-action="Index">
-                            <img alt='a' id='hrtLogo' src='https://avatars.githubusercontent.com/u/108847584?s=200&v=4'
+                        <a asp-controller="Home" asp-action="Index" class="logoLink">
+                            <img alt='a'
+                                src='https://github.com/pratikkabade/edgeBank/raw/%234-!Shift/frontend/Assets/logo.png'
                                 draggable='false' />
-                        </a> *@
+                            EdgeBank
+                        </a>
                     </li>
                 </ul>
                 <ul class='navbar-nav justify-content-end'>
                     <li class="barItem ">
-                        <a asp-controller="Products" asp-action="Index" class="nav-link">
-                            Products
+                        <a asp-controller="User" asp-action="Login" class="nav-link">
+                            Login
                         </a>
                     </li>
                 </ul>
