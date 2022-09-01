@@ -1,9 +1,9 @@
 ﻿using System;
-namespace backend.Models
+namespace BackendAPI.Models
 {
     public class Roles
     {
         public const string Admin = "Admin";
-        public const string User = "User";
+        public const string Customer = "Customer";
     }
 }

@@ -25,3 +25,5 @@ Banking project based on `C-Sharp`, `MVC` for **Frontend** and `WEBAPI`, `JsonWe
     - Added `README`
 
 4. !Shifted to **previously build template** for ease in building
+
+5. Built backend as per the requirement of *admin* and  *customer* login

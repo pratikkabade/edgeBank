@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <LinkerRootAssemblies Include="Microsoft.AspNetCore.Mvc.Razor.Extensions;Microsoft.Extensions.FileProviders.Composite;Microsoft.Extensions.Primitives;Microsoft.AspNetCore.Diagnostics.Abstractions" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.9" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.0" NoWarn="NU1605" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />

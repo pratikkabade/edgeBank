@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using backend.Models;
+using BackendAPI.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,7 +17,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
-namespace backend
+namespace BackendAPI
 {
     public class Startup
     {
@@ -35,7 +35,7 @@ namespace backend
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "BackendAPI", Version = "v1" });
             });
             services
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -53,7 +53,7 @@ namespace backend
                         ValidAudience = Configuration["JWT:Audience"]
                     };
                 });
-            services.AddDbContext<ProductManagementDbContext>(
+            services.AddDbContext<DataBaseContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
                 );
 
@@ -67,7 +67,7 @@ namespace backend
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "backend v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BackendAPI v1"));
             }
 
             app.UseHttpsRedirection();

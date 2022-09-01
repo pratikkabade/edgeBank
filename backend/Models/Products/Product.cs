@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
-namespace backend.Models
+namespace BackendAPI.Models
 {
     public class Product
     {

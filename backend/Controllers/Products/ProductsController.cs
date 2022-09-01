@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using backend.Models;
+using BackendAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace backend.Controllers
+namespace BackendAPI.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ProductsController : Controller
     {
-        private ProductManagementDbContext productManagementDbContext;
-        public ProductsController(ProductManagementDbContext productManagementDbContext)
+        private DataBaseContext data_context;
+        public ProductsController(DataBaseContext data_context)
         {
-            this.productManagementDbContext = productManagementDbContext;
+            this.data_context = data_context;
         }
 
         // INDEX
@@ -26,7 +26,7 @@ namespace backend.Controllers
         [HttpGet]
         public IEnumerable<Product> Get()
         {
-            return productManagementDbContext.Products.ToList();
+            return data_context.Products.ToList();
         }
 
         // DETAILS
@@ -34,7 +34,7 @@ namespace backend.Controllers
         [HttpGet("{id}")]
         public Product Get(int id)
         {
-            return this.productManagementDbContext.Products.Where(product => product.Id == id).FirstOrDefault();
+            return this.data_context.Products.Where(product => product.Id == id).FirstOrDefault();
         }
 
         // CREATE
@@ -42,8 +42,8 @@ namespace backend.Controllers
         [HttpPost]
         public string Post([FromBody] Product product)
         {
-            this.productManagementDbContext.Products.Add(product);
-            this.productManagementDbContext.SaveChanges();
+            this.data_context.Products.Add(product);
+            this.data_context.SaveChanges();
             return "Product created successfully!";
         }
 
@@ -52,8 +52,8 @@ namespace backend.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Product product)
         {
-            this.productManagementDbContext.Products.Update(product);
-            this.productManagementDbContext.SaveChanges();
+            this.data_context.Products.Update(product);
+            this.data_context.SaveChanges();
         }
 
 
@@ -62,8 +62,8 @@ namespace backend.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            this.productManagementDbContext.Products.Remove(this.productManagementDbContext.Products.Where(product => product.Id == id).FirstOrDefault());
-            this.productManagementDbContext.SaveChanges();
+            this.data_context.Products.Remove(this.data_context.Products.Where(product => product.Id == id).FirstOrDefault());
+            this.data_context.SaveChanges();
         }
     }
 }
