@@ -47,7 +47,7 @@ namespace frontend.Controllers
             }
             else
             {
-                return RedirectToAction("Login", "User");
+                return RedirectToAction("Error403", "Error");
             }
         }
 
@@ -78,8 +78,9 @@ namespace frontend.Controllers
                 }
                 else
                 {
-                    ViewBag.Message = "Admin access required";
-                    return View("Create");
+                    // ViewBag.Message = "Admin access required";
+                    // return View("Create");
+                    return RedirectToAction("Error403", "Error");
                 }
             }
             else
@@ -124,8 +125,9 @@ namespace frontend.Controllers
                 }
                 else
                 {
-                    ViewBag.Message = "Admin access required";
-                    return View("Edit");
+                    // ViewBag.Message = "Admin access required";
+                    // return View("Edit");
+                    return RedirectToAction("Error403", "Error");
                 }
             }
             else
@@ -169,8 +171,9 @@ namespace frontend.Controllers
                 }
                 else
                 {
-                    ViewBag.Message = "Admin access required";
-                    return View("Delete");
+                    // ViewBag.Message = "Admin access required";
+                    // return View("Delete");
+                    return RedirectToAction("Error403", "Error");
                 }
             }
             else

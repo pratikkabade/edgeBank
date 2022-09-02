@@ -63,6 +63,7 @@ namespace frontend.Controllers
             return View("Login");
         }
 
+        // [Authorize(Roles = "Admin")]
         public IActionResult ControlPannel()
         {
             return View();
