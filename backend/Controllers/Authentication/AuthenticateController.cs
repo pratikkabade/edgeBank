@@ -83,7 +83,7 @@ namespace BackendAPI.Controllers
 
         // CREATE, EDIT, DELETE OPERATIONS
         // INDEX
-        [Authorize(Roles = "Admin,Customer")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IEnumerable<Users> Get()
         {
@@ -91,7 +91,7 @@ namespace BackendAPI.Controllers
         }
 
         // DETAILS
-        [Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = "Admin")]
         [HttpGet("{id}")]
         public Users Get(int id)
         {
@@ -110,7 +110,8 @@ namespace BackendAPI.Controllers
 
 
         // EDIT
-        [Authorize(Roles = Roles.Admin)]
+        // [Authorize(Roles = Roles.Admin)]
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Users New_User)
         {
@@ -119,7 +120,8 @@ namespace BackendAPI.Controllers
         }
 
         // DELETE
-        [Authorize(Roles = Roles.Admin)]
+        // [Authorize(Roles = Roles.Admin)]
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
