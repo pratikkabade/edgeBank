@@ -1,8 +1,18 @@
+/* .contactForm input,
+.contactForm textarea,
+.contactForm textarea {
+  margin-bottom: 20px;
+} */
+.contactButton {
+  border: none !important;
+}
+
 .logoLink {
-  color: black;
+  color: var(--accent);
   text-decoration: none;
   padding: 5px;
   font-size: 30px;
+  transition: 0.2s;
 }
 
 .logoLink img {
@@ -14,6 +24,113 @@
   border: 1px solid var(--accent);
 }
 
+.logoLink:hover {
+  filter: brightness(1.2);
+  transition: 0.2s;
+}
+
 .contactForm {
-  box-shadow: var(--shadowsmall) !important;
+  box-shadow: var(--shadowtiny) !important;
+}
+
+/* ONE */
+
+.containerMod {
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container1 h1 {
+  font-size: 80px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--accent);
+  margin-bottom: 200px !important;
+}
+
+.container2 {
+  display: block;
+  text-align: center;
+  background-color: var(--accentdim2);
+  color: var(--accent);
+  width: 100% !important;
+  height: 94% !important;
+}
+
+.moveDownLink {
+  text-align: center;
+  font-size: 45px;
+  width: 100%;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.pagecomp {
+  padding-top: 100px;
+  margin-left: 50px;
+  text-align: left;
+}
+
+.pagecomp h5 {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--accentdark);
+  margin-bottom: 20px;
+}
+
+.pagecomp h6 {
+  font-size: 25px;
+  color: var(--accent);
+}
+
+.pagecomp {
+  display: flex !important;
+}
+
+.pagecomp img {
+  width: 140px;
+  height: 140px;
+  margin-right: 100px;
+}
+
+.textSection {
+  display: block
+}
+
+.padRL {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around !important;
+  height: 40%;
+}
+
+.centreText {
+  text-align: center;
+}
+
+.appLink {
+  display: block !important;
+}
+
+.appLink a {
+  text-decoration: none;
+  color: var(--accent);
+  font-size: 30px;
+  transition: 0.2s;
+}
+
+.footerLogo {
+  height: 15% !important;
+  display: block;
+  text-align: center;
+}
+
+.footerLogo h5 {
+  margin: 20px;
 }

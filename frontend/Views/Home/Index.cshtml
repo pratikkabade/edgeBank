@@ -2,4 +2,82 @@
     ViewBag.Title = "Home";
 }
 
-<h1>EdgeBank</h1>
+<style>
+    main,
+    body,
+    html,
+    .container {
+        width: 100% !important;
+        max-width: 10000px;
+        height: 100% !important;
+        padding: 0px !important;
+        margin: 0px !important;
+        margin-top: 65px !important;
+    }
+</style>
+
+<div class="containerMod container1">
+    <h1 class="head">Meet the banking that keeps pace with you</h1>
+</div>
+
+<div class="containerMod container2">
+    <div class="padRL">
+        <a class="moveDownLink" href="#page2" id="page2">Your smart account is backed by </a>
+
+        <div class="pagecomp">
+            <img src="https://github.com/pratikkabade/edgeBank/raw/%236-F-Home/frontend/Assets/trust.png" alt="as">
+            <div class="textSection">
+                <h5>Max Trust</h5>
+                <h6>We host your account in an RBI-licensed bank</h6>
+            </div>
+        </div>
+        <div class="pagecomp">
+            <img src="https://github.com/pratikkabade/edgeBank/raw/%236-F-Home/frontend/Assets/security.png" alt="as">
+            <div class="textSection">
+                <h5>Max Security</h5>
+                <h6>Which means bank-grade security and ISO and PCI compliant</h6>
+            </div>
+        </div>
+        <div class="pagecomp">
+            <img src="https://github.com/pratikkabade/edgeBank/raw/%236-F-Home/frontend/Assets/safety.png" alt="as">
+            <div class="textSection">
+                <h5>Max Safety</h5>
+                <h6>Your money is always insured</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="centreText">
+    <a class="moveDownLink" href="#page3" id="page3">More </a>
+</div>
+<div class="footer containerMod ">
+
+    <div class="appLink">
+        <h1>EdgeBank</h1>
+        <a asp-controller="Home" asp-action="Index"><img
+                src="https://github.com/pratikkabade/edgeBank/raw/%236-F-Home/frontend/Assets/play.png" alt="play"></a>
+        <br>
+        <a asp-controller="Home" asp-action="Index"><img
+                src="https://github.com/pratikkabade/edgeBank/raw/%236-F-Home/frontend/Assets/app.png" alt="app"></a>
+    </div>
+    <div class="appLink">
+        <h1>Company</h1>
+        <a asp-controller="Home" asp-action="Team">Team</a> <br>
+        <a asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+    </div>
+    <div class="appLink">
+        <h1>Social</h1>
+        <a href="#">Instagram</a> <br>
+        <a href="#">Twitter</a>
+    </div>
+</div>
+
+<div class="footerLogo containerMod">
+    <a asp-controller="Home" asp-action="Index" class="logoLink">
+        <img alt='a' src='https://github.com/pratikkabade/edgeBank/raw/%234-!Shift/frontend/Assets/logo.png'
+            draggable='false' />
+        EdgeBank
+    </a>
+    <h5>Copyright © 2022, EdgeBank. All rights reserved.</h5>
+</div>
