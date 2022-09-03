@@ -35,3 +35,9 @@ Banking project based on `C-Sharp`, `MVC` for **Frontend** and `WEBAPI`, `JsonWe
     - **create** new user
 
     - **edit-delete** existing user
+
+7. **Contact** backend and frontend 
+
+    - minor css changes 
+
+    - error messages
