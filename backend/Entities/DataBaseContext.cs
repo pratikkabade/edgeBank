@@ -9,6 +9,7 @@ namespace BackendAPI.Models
         {
         }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Contact> ContactMsg { get; set; }
         public DbSet<Users> User { get; set; }
 
         // GIVING PREDIFINED DATA TO DATABASE 
