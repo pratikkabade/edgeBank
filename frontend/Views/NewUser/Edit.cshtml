@@ -5,6 +5,8 @@
 
 
 <form asp-action="Edit" asp-controller="NewUser" method="post" class="contactForm">
+    <h1 class="headerText">Edit - @Model.FirstName</h1>
+
     <fieldset>
         <p>
             <input asp-for="FirstName" placeholder="FirstName" />

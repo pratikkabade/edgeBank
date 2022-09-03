@@ -1,14 +1,30 @@
 ﻿@{
+
     ViewBag.Title = "ControlPannel";
 }
 
-<div class="container">
-    <div asp-action="Login" class="border text-center contactForm barItem">
+<style>
+    .subSection a{
+        font-size: 25px;
+        font-weight: 600;
+        text-align: center;
+    }
+</style>
+
+<div class="mainSection">
+    <div class="subSection">
         <a asp-controller="NewUser" asp-action="Users">
             Users
-        </a> <br>
-        <a asp-controller="Products" asp-action="Index" class="pushDown">
+        </a>
+    </div>
+    <div class="subSection">
+        <a asp-controller="Products" asp-action="Index">
             Products
+        </a>
+    </div>
+    <div class="subSection">
+        <a asp-controller="Contact" asp-action="Index">
+            Messages
         </a>
     </div>
 </div>
