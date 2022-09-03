@@ -47,7 +47,7 @@ namespace frontend.Controllers
             }
             else
             {
-                return RedirectToAction("Error403", "Error");
+                return RedirectToAction("Error401", "Error");
             }
         }
 
@@ -74,17 +74,17 @@ namespace frontend.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("Users", "NewUser");
+                    return RedirectToAction("CreateMessage", "Messages");
                 }
                 else
                 {
                     // ViewBag.Message = "Admin access required";
                     // return View("Create");
-                    return RedirectToAction("Error403", "Error");
+                    return RedirectToAction("Error401", "Error");
                 }
             }
             else
-                return View("Create");
+                return RedirectToAction("Error401", "Error");
         }
 
 
@@ -121,17 +121,17 @@ namespace frontend.Controllers
                 var response = await http_Client.SendAsync(request);
                 if (response.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("Users", "NewUser");
+                    return RedirectToAction("EditMessage", "Messages");
                 }
                 else
                 {
                     // ViewBag.Message = "Admin access required";
                     // return View("Edit");
-                    return RedirectToAction("Error403", "Error");
+                    return RedirectToAction("Error401", "Error");
                 }
             }
             else
-                return View("Edit");
+                return RedirectToAction("Error401", "Error");
         }
 
 
@@ -167,18 +167,17 @@ namespace frontend.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("Users", "NewUser");
+                    return RedirectToAction("DeleteMessage", "Messages");
                 }
                 else
                 {
                     // ViewBag.Message = "Admin access required";
                     // return View("Delete");
-                    return RedirectToAction("Error403", "Error");
+                    return RedirectToAction("Error401", "Error");
                 }
             }
             else
-                ViewBag.Message = "wrong";
-            return View("Delete");
+                return RedirectToAction("Error401", "Error");
         }
 
     }

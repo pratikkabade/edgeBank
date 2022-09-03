@@ -11,5 +11,20 @@ namespace frontend.Controllers
             return View();
         }
 
+        public IActionResult EditMessage()
+        {
+            return View();
+        }
+
+        public IActionResult DeleteMessage()
+        {
+            return View();
+        }
+
+        public IActionResult SentMessage()
+        {
+            return View();
+        }
+
     }
 }

@@ -54,7 +54,7 @@ namespace frontend.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("MyAccount", "User");
+                    return RedirectToAction("ControlPannel", "User");
                 }
 
                 // return RedirectToAction("ControlPannel", "User");
