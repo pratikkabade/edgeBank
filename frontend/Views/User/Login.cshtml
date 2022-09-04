@@ -1,5 +1,4 @@
 ﻿@{
-
     ViewBag.Title = "Login";
 }
 @model Users
@@ -9,9 +8,8 @@
 
     <div class="form-group row">
         <input asp-for="Email" placeholder="Email" />
-    </div><br /><br />
+    </div>
     <div class="row">
-        <span></span>
         <span>@Html.ValidationMessageFor(u => u.Email)</span>
     </div>
 
