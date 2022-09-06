@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 namespace BackendAPI.Models
 {
     public class Users
@@ -6,7 +10,8 @@ namespace BackendAPI.Models
         public Users()
         {
         }
-        public int Id { get; set; }
+        [Key]
+        public int UserId { get; set; }
 
         // BASIC DATA FIELD
         public string FirstName { get; set; }

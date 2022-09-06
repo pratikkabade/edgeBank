@@ -11,13 +11,14 @@ namespace BackendAPI.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<Contact> ContactMsg { get; set; }
         public DbSet<Users> User { get; set; }
+        public DbSet<CashFlow> CashFlows { get; set; }
 
         // GIVING PREDIFINED DATA TO DATABASE 
         // CREATING ADMIN USER
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Users>().HasData(
-                new Users { Id = 1, Email = "admin@gmail.com", Password = "Passcode1", Role = Roles.Admin }
+                new Users { UserId = 1, Email = "admin@gmail.com", Password = "Passcode1", Role = Roles.Admin }
                 );
         }
 
