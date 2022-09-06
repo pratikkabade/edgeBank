@@ -66,6 +66,7 @@ namespace frontend.Controllers
         // [Authorize(Roles = "Admin")]
         public IActionResult ControlPannel()
         {
+            ViewBag.Message = HttpContext.Session.GetString("UserName");
             return View();
         }
 
