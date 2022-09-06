@@ -31,7 +31,7 @@ namespace BackendAPI.Controllers
             return "Money sent successfully!";
         }
 
-        // INDEX
+        // GET BY ID
         [Authorize(Roles = "Admin")]
         [HttpGet("{id}")]
         public IEnumerable<UserCashFlow> Get(int id)
@@ -40,6 +40,29 @@ namespace BackendAPI.Controllers
                                 join u in cash_context.Set<Users>()
                                 on c.UserId equals u.UserId
                                 where c.TransactionId == id
+                                select new UserCashFlow
+                                {
+                                    TransactionId = c.TransactionId,
+                                    TransactionType = c.TransactionType,
+                                    UserId = u.UserId,
+                                    FirstName = u.FirstName,
+                                    Email = u.Email,
+                                    TransactionAmount = c.TransactionAmount,
+                                    TransactionDate = c.TransactionDate,
+                                    TransactionStatus = c.TransactionStatus
+                                };
+            return deptEmployees.ToList();
+        }
+
+
+        // GET BY ID
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public IEnumerable<UserCashFlow> Get()
+        {
+            var deptEmployees = from c in cash_context.Set<CashFlow>()
+                                join u in cash_context.Set<Users>()
+                                on c.UserId equals u.UserId
                                 select new UserCashFlow
                                 {
                                     TransactionId = c.TransactionId,
