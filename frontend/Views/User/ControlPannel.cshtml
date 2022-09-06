@@ -4,7 +4,7 @@
 }
 
 <style>
-    .subSection a{
+    .subSection a {
         font-size: 25px;
         font-weight: 600;
         text-align: center;
@@ -12,6 +12,7 @@
 </style>
 
 <div class="mainSection">
+    <h2>@Html.Raw(@ViewBag.Message)</h2>
     <div class="subSection">
         <a asp-controller="NewUser" asp-action="Users">
             Users
