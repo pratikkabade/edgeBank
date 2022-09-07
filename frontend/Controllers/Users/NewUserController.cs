@@ -36,6 +36,9 @@ namespace frontend.Controllers
             http_Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
             var response = await http_Client.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + "/administration");
             var content = await response.Content.ReadAsStringAsync();
+
+            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
+
             if (response.IsSuccessStatusCode)
             {
                 var user = new List<Users>();
@@ -56,6 +59,7 @@ namespace frontend.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
+            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
             await Task.Delay(1000);
             return View();
         }
@@ -98,6 +102,9 @@ namespace frontend.Controllers
             var response = await http_Client.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + $"/administration/{id}");
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
+
+            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
+
             var new_user = new Users();
             if (response.Content.Headers.ContentType.MediaType == "application/json")
             {
@@ -143,6 +150,9 @@ namespace frontend.Controllers
             var response = await http_Client.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + $"/administration/{id}");
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
+
+            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
+
             var new_user = new Users();
             if (response.Content.Headers.ContentType.MediaType == "application/json")
             {

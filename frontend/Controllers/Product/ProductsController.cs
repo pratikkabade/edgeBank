@@ -36,6 +36,9 @@ namespace frontend.Controllers
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
             var response = await httpClient.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + "/products");
             var content = await response.Content.ReadAsStringAsync();
+
+            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
+
             if (response.IsSuccessStatusCode)
             {
                 var products = new List<Product>();
@@ -56,6 +59,7 @@ namespace frontend.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
+            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
             await Task.Delay(1000);
             return View();
         }
@@ -95,6 +99,7 @@ namespace frontend.Controllers
             var response = await httpClient.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + $"/products/{id}");
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
+            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
             var product = new Product();
             if (response.Content.Headers.ContentType.MediaType == "application/json")
             {
@@ -140,6 +145,7 @@ namespace frontend.Controllers
             var response = await httpClient.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + $"/products/{id}");
             response.EnsureSuccessStatusCode();
             var content = await response.Content.ReadAsStringAsync();
+            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
             var product = new Product();
             if (response.Content.Headers.ContentType.MediaType == "application/json")
             {

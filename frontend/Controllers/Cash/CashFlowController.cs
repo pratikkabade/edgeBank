@@ -36,6 +36,9 @@ namespace frontend.Controllers
             cashClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
             var response = await cashClient.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + "/CashFlow/");
             var content = await response.Content.ReadAsStringAsync();
+
+            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
+
             if (response.IsSuccessStatusCode)
             {
                 var transaction = new List<CashFlow>();

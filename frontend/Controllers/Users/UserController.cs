@@ -28,6 +28,7 @@ namespace frontend.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
             return View();
         }
         [HttpPost]
@@ -48,30 +49,24 @@ namespace frontend.Controllers
                 HttpContext.Session.SetString("token", jwt.Token);
                 HttpContext.Session.SetString("UserName", user.Email);
 
+                ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
+
                 if (user.Role == "Admin")
                 {
-                    return RedirectToAction("ControlPannel", "User");
+                    return RedirectToAction("MyAccount", "User");
                 }
                 else
                 {
-                    return RedirectToAction("ControlPannel", "User");
+                    return RedirectToAction("MyAccount", "User");
                 }
-
-                // return RedirectToAction("ControlPannel", "User");
             }
             ViewBag.Message = "Invalid Username or Password";
             return View("Login");
         }
 
-        // [Authorize(Roles = "Admin")]
-        public IActionResult ControlPannel()
-        {
-            ViewBag.Message = HttpContext.Session.GetString("UserName");
-            return View();
-        }
-
         public IActionResult MyAccount()
         {
+            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
             return View();
         }
 

@@ -31,6 +31,7 @@ namespace frontend.Controllers
         [HttpGet]
         public async Task<IActionResult> ContactUs()
         {
+            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
             await Task.Delay(1000);
             return View();
         }
@@ -70,6 +71,9 @@ namespace frontend.Controllers
             httpMsgClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
             var response = await httpMsgClient.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + "/contact");
             var content = await response.Content.ReadAsStringAsync();
+
+            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
+
             if (response.IsSuccessStatusCode)
             {
                 var contact = new List<Contact>();
