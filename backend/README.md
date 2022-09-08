@@ -65,3 +65,75 @@
     <img  src="https://user-images.githubusercontent.com/76637730/185439279-51db7471-c966-4dcb-bfb0-5f64e4cb1eac.png"> 
     </details>
 
+### thunderclient Log
+
+  #### 1. `POST` login
+```
+https://localhost:5001/api/authenticate
+```
+
+  #### 2. `GET` all_users
+```
+https://localhost:5001/api/authenticate
+```
+
+  #### 3. `GET` first_users
+```
+https://localhost:5001/api/administration/1
+```
+
+  #### 4. `POST` create_user
+```
+https://localhost:5001/api/authenticate
+```
+
+  #### 5. `DELETE` first_users
+```
+https://localhost:5001/api/authenticate/1
+```
+
+---
+
+  #### 1. `GET` all_cashflow
+```
+https://localhost:5001/api/CashFlow/
+```
+
+  #### 2. `GET` first_cashflow
+```
+https://localhost:5001/api/CashFlow/1
+```
+
+  #### 3. `POST` create_cashflow
+```
+https://localhost:5001/api/authenticate
+```
+
+---
+
+  #### 1. `GET` all_users
+```
+https://localhost:5001/api/products
+```
+
+  #### 1. `POST` first_users
+```
+https://localhost:5001/api/products/1
+```
+
+  #### 3. `DELETE` first_users
+```
+https://localhost:5001/api/products/1
+```
+
+---
+
+  #### 1. `GET` all_messages
+```
+https://localhost:5001/api/contact/
+```
+
+  #### 1. `GET` first_messages
+```
+https://localhost:5001/api/contact/1
+```
