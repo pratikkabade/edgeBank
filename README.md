@@ -46,4 +46,70 @@ Banking project based on `C-Sharp`, `MVC` for **Frontend** and `WEBAPI`, `JsonWe
 
     - *navbar* logic 
 
-    -- finishing touch
+    - finishing touch
+    
+## Screenshots
+
+### Homepage
+
+![image](https://github.com/pratikkabade/edgeBank/raw/%238-B-CashFlow/frontend/.assets/.readme_assets/localhost_5002_.png)
+
+---
+
+### User_Login
+
+![image](https://github.com/pratikkabade/edgeBank/raw/%238-B-CashFlow/frontend/.assets/.readme_assets/localhost_5002_User_Login.png)
+
+---
+
+### MyAccount
+
+![image](https://github.com/pratikkabade/edgeBank/raw/%238-B-CashFlow/frontend/.assets/.readme_assets/localhost_5002_User_MyAccount.png)
+
+---
+
+### NewUser_Users
+
+![image](https://github.com/pratikkabade/edgeBank/raw/%238-B-CashFlow/frontend/.assets/.readme_assets/localhost_5002_NewUser_Users.png)
+
+---
+
+### NewUser_Create
+
+![image](https://github.com/pratikkabade/edgeBank/raw/%238-B-CashFlow/frontend/.assets/.readme_assets/localhost_5002_NewUser_Create.png)
+
+---
+
+### Products_Create
+
+![image](https://github.com/pratikkabade/edgeBank/raw/%238-B-CashFlow/frontend/.assets/.readme_assets/localhost_5002_Products_Create.png)
+
+---
+
+### Products_Edit_3
+
+![image](https://github.com/pratikkabade/edgeBank/raw/%238-B-CashFlow/frontend/.assets/.readme_assets/localhost_5002_Products_Edit_3.png)
+
+---
+
+### ContactUs
+
+![image](https://github.com/pratikkabade/edgeBank/raw/%238-B-CashFlow/frontend/.assets/.readme_assets/localhost_5002_Contact_ContactUs.png)
+
+---
+
+### Messages_SentMessage
+
+![image](https://github.com/pratikkabade/edgeBank/raw/%238-B-CashFlow/frontend/.assets/.readme_assets/localhost_5002_Messages_SentMessage.png)
+
+---
+
+### Contact
+
+![image](https://github.com/pratikkabade/edgeBank/raw/%238-B-CashFlow/frontend/.assets/.readme_assets/localhost_5002_Contact.png)
+
+---
+
+### CashFlow
+
+![image](https://github.com/pratikkabade/edgeBank/raw/%238-B-CashFlow/frontend/.assets/.readme_assets/localhost_5002_CashFlow.png)
