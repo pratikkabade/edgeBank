@@ -2,6 +2,8 @@
 
 Banking project based on `C-Sharp`, `MVC` for **Frontend** and `WEBAPI`, `JsonWebToken` for **Backend**
 
+Project Depricated as of **Sept-8**.
+
 ## Commits
 
 1. Created templates using 
