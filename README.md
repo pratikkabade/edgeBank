@@ -43,3 +43,7 @@ Banking project based on `C-Sharp`, `MVC` for **Frontend** and `WEBAPI`, `JsonWe
     - error messages
 
 8. **CashFlow** backend and frontend 
+
+    - *navbar* logic 
+
+    -- finishing touch
