@@ -4,6 +4,8 @@ Banking project based on `C-Sharp`, `MVC` for **Frontend** and `WEBAPI`, `JsonWe
 
 Project Depricated as of **Sept-8**.
 
+[![img](https://wakatime.com/badge/user/94eceae7-683a-4d18-a44b-59d4ffd2eb5d/project/13d05079-c649-4857-9ff5-f59d2c960fbd.svg)](https://wakatime.com/@pratikkabade/projects/mmvottwute)
+
 ## Commits
 
 1. Created templates using 
@@ -26,7 +28,7 @@ Project Depricated as of **Sept-8**.
 
     - Added `README`
 
-4. !Shifted to **previously build template** for ease in building
+4. **SHIFT** - Shifted to **previously build template** for ease in building
 
 5. Built backend as per the requirement of **admin** and  **customer** login
 
