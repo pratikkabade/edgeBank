@@ -55,7 +55,7 @@ namespace BackendAPI.Controllers
         }
 
 
-        // GET BY ID
+        // GET ALL
         [Authorize(Roles = "Admin")]
         [HttpGet]
         public IEnumerable<UserCashFlow> Get()
