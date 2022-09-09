@@ -105,23 +105,23 @@ namespace frontend.Controllers
 
             ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
 
-            var new_user = new Users();
+            var edit_user = new Users();
             if (response.Content.Headers.ContentType.MediaType == "application/json")
             {
-                new_user = JsonConvert.DeserializeObject<Users>(content);
+                edit_user = JsonConvert.DeserializeObject<Users>(content);
             }
-            return View(new_user);
+            return View(edit_user);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(Users new_user)
+        public async Task<IActionResult> Edit(Users edit_user)
         {
             if (ModelState.IsValid)
             {
                 //http_Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 http_Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
-                var serializedProductToEdit = JsonConvert.SerializeObject(new_user);
-                var request = new HttpRequestMessage(HttpMethod.Put, Configuration.GetValue<string>("WebAPIBaseUrl") + $"/administration/{new_user.Id}");
+                var serializedProductToEdit = JsonConvert.SerializeObject(edit_user);
+                var request = new HttpRequestMessage(HttpMethod.Put, Configuration.GetValue<string>("WebAPIBaseUrl") + $"/administration/{edit_user.UserId}");
                 request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 request.Content = new StringContent(serializedProductToEdit);
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
@@ -132,8 +132,6 @@ namespace frontend.Controllers
                 }
                 else
                 {
-                    // ViewBag.Message = "Admin access required";
-                    // return View("Edit");
                     return RedirectToAction("Error401", "Error");
                 }
             }
@@ -153,23 +151,23 @@ namespace frontend.Controllers
 
             ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
 
-            var new_user = new Users();
+            var del_user = new Users();
             if (response.Content.Headers.ContentType.MediaType == "application/json")
             {
-                new_user = JsonConvert.DeserializeObject<Users>(content);
+                del_user = JsonConvert.DeserializeObject<Users>(content);
             }
-            return View(new_user);
+            return View(del_user);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(Users new_user)
+        public async Task<IActionResult> Delete(Users del_user)
         {
             if (ModelState.IsValid)
             {
                 //http_Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 http_Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
-                var serializedProductToDelete = JsonConvert.SerializeObject(new_user);
-                var request = new HttpRequestMessage(HttpMethod.Delete, Configuration.GetValue<string>("WebAPIBaseUrl") + $"/administration/{new_user.Id}");
+                var serializedProductToDelete = JsonConvert.SerializeObject(del_user);
+                var request = new HttpRequestMessage(HttpMethod.Delete, Configuration.GetValue<string>("WebAPIBaseUrl") + $"/administration/{del_user.UserId}");
                 request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 request.Content = new StringContent(serializedProductToDelete);
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
@@ -181,8 +179,6 @@ namespace frontend.Controllers
                 }
                 else
                 {
-                    // ViewBag.Message = "Admin access required";
-                    // return View("Delete");
                     return RedirectToAction("Error401", "Error");
                 }
             }

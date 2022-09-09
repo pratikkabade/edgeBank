@@ -1,4 +1,4 @@
 USE master
 GO
-DROP DATABASE [User]
+DROP DATABASE [edgeBank]
 GO

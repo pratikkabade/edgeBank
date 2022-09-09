@@ -6,7 +6,7 @@ namespace frontend.Models
         public Users()
         {
         }
-        public int Id { get; set; }
+        public int UserId { get; set; }
 
         // BASIC DATA FIELD
         public string FirstName { get; set; }

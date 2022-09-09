@@ -158,7 +158,7 @@
   background-color: rgb(255, 222, 222);
   color: var(--reddark);
   width: 100%;
-  margin-top: 10%;
+  margin-top: 0%;
   display: block;
   text-align: center;
 }
@@ -216,7 +216,6 @@
   padding: 50px;
   border-radius: 100px;
   color: green;
-  margin-left: 10%;
 }
 
 /*  */

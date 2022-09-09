@@ -21,6 +21,10 @@ namespace frontend
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseKestrel(opts =>
+                    {
+                        opts.ListenLocalhost(5002, opts => opts.UseHttps());
+                    });
                 });
     }
 }

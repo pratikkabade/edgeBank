@@ -64,11 +64,22 @@ namespace frontend.Controllers
             return View("Login");
         }
 
-        public IActionResult MyAccount()
+        public async Task<IActionResult> MyAccount()
         {
-            ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
-            return View();
-        }
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
+            var response = await httpClient.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + "/administration");
+            var content = await response.Content.ReadAsStringAsync();
 
+            if (response.IsSuccessStatusCode)
+            {
+                ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Error401", "Error");
+            }
+        }
     }
 }

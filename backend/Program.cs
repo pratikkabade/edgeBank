@@ -21,6 +21,10 @@ namespace BackendAPI
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseKestrel(opts =>
+                    {
+                        opts.ListenLocalhost(5001, opts => opts.UseHttps());
+                    });
                 });
     }
 }

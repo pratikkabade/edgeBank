@@ -77,7 +77,7 @@ https://localhost:5001/api/authenticate
 https://localhost:5001/api/authenticate
 ```
 
-  #### 3. `GET` first_users
+  #### 3. `GET` first_user
 ```
 https://localhost:5001/api/administration/1
 ```
@@ -87,7 +87,7 @@ https://localhost:5001/api/administration/1
 https://localhost:5001/api/authenticate
 ```
 
-  #### 5. `DELETE` first_users
+  #### 5. `DELETE` first_user
 ```
 https://localhost:5001/api/authenticate/1
 ```
@@ -108,20 +108,29 @@ https://localhost:5001/api/CashFlow/1
 ```
 https://localhost:5001/api/authenticate
 ```
+```http
+{
+  "transactionType":"withdrawal",
+  "transactionAmount":"23000",
+  "UserId": "1",
+  "transactionDate": "2022-09-09T06:30:00",
+  "transactionStatus": "Successful"
+}
+```
 
 ---
 
-  #### 1. `GET` all_users
+  #### 1. `GET` all_products
 ```
 https://localhost:5001/api/products
 ```
 
-  #### 1. `POST` first_users
+  #### 1. `POST` first_product
 ```
 https://localhost:5001/api/products/1
 ```
 
-  #### 3. `DELETE` first_users
+  #### 3. `DELETE` first_product
 ```
 https://localhost:5001/api/products/1
 ```
@@ -130,10 +139,10 @@ https://localhost:5001/api/products/1
 
   #### 1. `GET` all_messages
 ```
-https://localhost:5001/api/contact/
+https://localhost:5001/api/contactus/
 ```
 
   #### 1. `GET` first_messages
 ```
-https://localhost:5001/api/contact/1
+https://localhost:5001/api/contactus/1
 ```

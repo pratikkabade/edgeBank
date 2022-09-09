@@ -8,6 +8,9 @@
     <h1 class="headerText" style="color: var(--red);">Delete - @Model.FirstName</h1>
     <fieldset>
         <p>
+            <input asp-for="UserId" hidden readonly />
+        </p>
+        <p>
             <input asp-for="FirstName" placeholder="FirstName" readonly />
         </p>
         <p>
