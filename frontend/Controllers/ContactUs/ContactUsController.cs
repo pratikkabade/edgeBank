@@ -16,10 +16,10 @@ using frontend.Models;
 namespace frontend.Controllers
 {
 
-    public class ContactController : Controller
+    public class ContactUsController : Controller
     {
         private static HttpClient httpMsgClient = new HttpClient();
-        public ContactController(IConfiguration configuration)
+        public ContactUsController(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -37,12 +37,12 @@ namespace frontend.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ContactUs(Contact contactMsg)
+        public async Task<IActionResult> ContactUs(ContactUs contactMsg)
         {
             if (ModelState.IsValid)
             {
                 var serializedProductToCreate = JsonConvert.SerializeObject(contactMsg);
-                var request = new HttpRequestMessage(HttpMethod.Post, Configuration.GetValue<string>("WebAPIBaseUrl") + "/contact");
+                var request = new HttpRequestMessage(HttpMethod.Post, Configuration.GetValue<string>("WebAPIBaseUrl") + "/contactus");
                 request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 request.Content = new StringContent(serializedProductToCreate);
                 request.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
@@ -69,19 +69,19 @@ namespace frontend.Controllers
         {
             httpMsgClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             httpMsgClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Session.GetString("token"));
-            var response = await httpMsgClient.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + "/contact");
+            var response = await httpMsgClient.GetAsync(Configuration.GetValue<string>("WebAPIBaseUrl") + "/contactus");
             var content = await response.Content.ReadAsStringAsync();
 
             ViewBag.LogMessage = HttpContext.Session.GetString("UserName");
 
             if (response.IsSuccessStatusCode)
             {
-                var contact = new List<Contact>();
+                var contactMsg = new List<ContactUs>();
                 if (response.Content.Headers.ContentType.MediaType == "application/json")
                 {
-                    contact = JsonConvert.DeserializeObject<List<Contact>>(content);
+                    contactMsg = JsonConvert.DeserializeObject<List<ContactUs>>(content);
                 }
-                return View(contact);
+                return View(contactMsg);
             }
             else
             {

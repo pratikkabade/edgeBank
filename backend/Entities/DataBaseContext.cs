@@ -9,7 +9,7 @@ namespace BackendAPI.Models
         {
         }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Contact> ContactMsg { get; set; }
+        public DbSet<ContactUs> ContactMsg { get; set; }
         public DbSet<Users> User { get; set; }
         public DbSet<CashFlow> CashFlows { get; set; }
 

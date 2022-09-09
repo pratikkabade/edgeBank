@@ -1,11 +1,10 @@
 ﻿using System;
-namespace frontend.Models
+using System.Text.Json.Serialization;
+
+namespace BackendAPI.Models
 {
-    public class Contact
+    public class ContactUs
     {
-        public Contact()
-        {
-        }
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public string Name { get; set; }
