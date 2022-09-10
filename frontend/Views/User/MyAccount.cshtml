@@ -1,0 +1,35 @@
+@{
+    ViewBag.Title = "MyAccount";
+}
+
+<style>
+    .subSection a {
+        font-size: 25px;
+        font-weight: 600;
+        text-align: center;
+    }
+</style>
+
+<div class="mainSection">
+    <h2>@Html.Raw(@ViewBag.Message)</h2>
+    <div class="subSection">
+        <a asp-controller="NewUser" asp-action="Users">
+            Users
+        </a>
+    </div>
+    <div class="subSection">
+        <a asp-controller="Products" asp-action="Index">
+            Products
+        </a>
+    </div>
+    <div class="subSection">
+        <a asp-controller="ContactUs" asp-action="Index">
+            Messages
+        </a>
+    </div>
+    <div class="subSection">
+        <a asp-controller="CashFlow" asp-action="Index">
+            CashFlow
+        </a>
+    </div>
+</div>

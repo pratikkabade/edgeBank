@@ -1,0 +1,46 @@
+@{
+    ViewBag.Title = "Delete - " + @Model.FirstName;
+}
+@model Users
+
+
+<form asp-action="Delete" asp-controller="NewUser" method="post" class="contactForm">
+    <h1 class="headerText" style="color: var(--red);">Delete - @Model.FirstName</h1>
+    <fieldset>
+        <p>
+            <input asp-for="UserId" hidden readonly />
+        </p>
+        <p>
+            <input asp-for="FirstName" placeholder="FirstName" readonly />
+        </p>
+        <p>
+            <input asp-for="LastName" placeholder="LastName" readonly />
+        </p>
+        <p>
+            <input asp-for="Email" placeholder="Email" readonly />
+        </p>
+        <p>
+            <input asp-for="Password" placeholder="Password" readonly />
+        </p>
+        <p>
+            <input asp-for="MobileNumber" placeholder="MobileNumber" readonly />
+        </p>
+        <p>
+            <input asp-for="AadharCard" placeholder="AadharCard" readonly />
+        </p>
+        <p>
+            <input asp-for="PAN_Card" placeholder="PAN_Card" readonly />
+        </p>
+        <p>
+            <input asp-for="Address" placeholder="Address" readonly />
+        </p>
+        <p>
+            <input asp-for="Nominee" placeholder="Nominee" readonly />
+        </p>
+        <p>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </p>
+    </fieldset>
+    <h6 style="color:red">@Html.Raw(@ViewBag.Message)</h6>
+
+</form>
